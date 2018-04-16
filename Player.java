@@ -11,10 +11,10 @@ package flashcards;
  */
 
 public class Player {
-    // parameters
+	// parameters
     private String name;
     private int healthPoints;
-    private int final MAX_HEALTH = 100; // TODO: choose MAX_HEALTH value
+    private static final int MAX_HEALTH = 100; // TODO: choose MAX_HEALTH value
     private float playerPoints;
     //private Flashcards hand; // TODO: player's card hand (valid?)
 
@@ -23,10 +23,10 @@ public class Player {
         // TODO: discuss which could be valid constructor for this class
     }
 
-    Player (String name, int hp, int playerPoints) { // parameters constructor
+    Player (String name) { // parameters constructor
         this.name = name;
-        healthPoints = hp;
-        this.playerPoints = playerPoints;
+        this.healthPoints = MAX_HEALTH; 
+        this.playerPoints = 0;
     }
 
     public void playCard() {
