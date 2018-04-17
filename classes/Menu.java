@@ -2,13 +2,6 @@ package classes; /**
  * @author Grupo das Bananas loucas da aldeia do mato
  */
 
-/** Class classes.Menu
- *
- * classes.Menu area for before and after game.
- * classes.Menu features.
- *
- */
-
 public class Menu {
 
     Menu(){ // TODO: define constructor(s) for this class

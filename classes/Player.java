@@ -3,12 +3,6 @@ package classes;
  * @author Grupo das Bananas loucas da aldeia do mato
  */
 
-/** Class classes.Player
- *
- * classes.Player description class
- *
- */
-
 public class Player {
     // parameters
     private String name;
