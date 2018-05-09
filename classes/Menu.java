@@ -7,7 +7,7 @@ import Java.util.Scanner;
 
 public class Menu {
 
-    Scanner scanf;
+    private Scanner scanf;
 
     Menu(){
         scanf = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class Menu {
             String mode = scanf.nextString();
             type = chooseGameType(mode);
         } while (type == null);
-        
+
         return type;
     }
 
