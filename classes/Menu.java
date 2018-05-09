@@ -5,6 +5,11 @@ package classes;
 
 import Java.util.Scanner;
 
+
+/** Class Menu
+ * @brief Makes the splash Menu of the app, where the user choose
+ * which type of game he'll play, return the Game type object
+ */
 public class Menu {
 
     private Scanner scanf;
