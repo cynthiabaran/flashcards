@@ -32,8 +32,8 @@ public class Game {
     public void populateDeck(String cardType) {
         String folderPath = "./data/"+getCardType();
         java.io.File folder = new File(folder);
-        for (File fileEntry : folder.listFiles()) {
-            FileInputStream fileIn = new FileInputStream(fileEntry);
+        for (java.io.File fileEntry : folder.listFiles()) {
+            FileInputStream fileIn = new FileInputStream(fileEntry.getPath());
             ObjectInputStream in = new ObjectInputStream(fileIn);
             Card c = (Card) in.readObject();
             deck.add(c);
