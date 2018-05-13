@@ -51,7 +51,7 @@ public class Card implements Serializable {
 
     public void saveCardToFile() {
         try {
-            String filePath = "./data/card_"+getCardNumber()+".ser";
+            String filePath = "./data/"+getCardType()+"/card_"+getCardNumber()+".ser";
             FileOutputStream fileOut = new FileOutputStream(filePath);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
