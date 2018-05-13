@@ -37,6 +37,8 @@ public class Game {
             ObjectInputStream in = new ObjectInputStream(fileIn);
             Card c = (Card) in.readObject();
             deck.add(c);
+            in.close();
+            fileIn.close();
         }
     }
 }
