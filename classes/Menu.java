@@ -3,8 +3,7 @@ package classes;
  * @author Grupo das Bananas loucas da aldeia do mato
  */
 
-import Java.util.Scanner;
-
+import java.util.Scanner;
 
 /** Class Menu
  * @brief Makes the splash Menu of the app, where the user choose
@@ -25,7 +24,7 @@ public class Menu {
 
         do {
             showChoices();
-            String mode = scanf.nextString();
+            String mode = scanf.next();
             type = chooseGameType(mode);
         } while (type == null);
 
