@@ -12,11 +12,16 @@ public class Player {
     //private Flashcards hand; // TODO: player's card hand (valid?)
 
     // constructors
-    Player () { // default constructor
+    public Player () { // default constructor	
         // TODO: discuss which could be valid constructor for this class
     }
+    Player (String name) { // parameters constructor
+        this.name = name;
+        this.healthPoints = MAX_HEALTH;
+        this.playerPoints = 0;
+    }
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -42,12 +47,6 @@ public class Player {
 
     public void setPlayerPoints(float playerPoints) {
         this.playerPoints = playerPoints;
-    }
-
-    Player (String name) { // parameters constructor
-        this.name = name;
-        this.healthPoints = MAX_HEALTH;
-        this.playerPoints = 0;
     }
 
     public void playCard() {
