@@ -70,7 +70,7 @@ public class Menu {
             validType = true;
         }
         if (mode == "3" || mode.toUpperCase().equals("SANDBOX")) {
-            gameType = new Sandbox();
+            gameType = new Sandbox(new Player());
             validType = true;
         }
         if (validType) {
