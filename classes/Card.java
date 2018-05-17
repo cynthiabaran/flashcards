@@ -51,7 +51,7 @@ public class Card implements Serializable {
 
     public void saveCardToFile() {
         try {
-            String filePath = "./data/card_"+getCardNumber()+".ser";
+            String filePath = "./data/"+getCardType()+"/card_"+getCardNumber()+".ser";
             FileOutputStream fileOut = new FileOutputStream(filePath);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
@@ -81,8 +81,8 @@ public class Card implements Serializable {
     }
 
     public void printCard(){
-        System.out.println("classes.Card "+this.getCardNumber()+" is a "+getCardType()+" card.\n");
-        System.out.println("Title: "+this.getTitle()+"\n");
-        System.out.println("Content: "+this.getContent()+"\n");
+        System.out.println("Card "+this.getCardNumber()+" is a "+getCardType()+" card.");
+        System.out.println("Title: "+this.getTitle());
+        System.out.println("Content: "+this.getContent());
     }
 }
