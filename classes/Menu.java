@@ -59,24 +59,16 @@ public class Menu {
     }
 
     public Game chooseGameType(String mode) {
-        Game gameType = new Game();
-        boolean validType = false;
-        if (mode == "1" || mode.toUpperCase().equals("VERSUS")) {
+        Game gameType = null;
+        if (mode.equals("1") || mode.toUpperCase().equals("VERSUS")) {
             gameType = new Versus();
-            validType = true;
         }
-        if (mode == "2" || mode.toUpperCase().equals("TIMEATTACK") || mode.toUpperCase().equals("TIME ATTACK")) {
-            gameType = new TimeAttack(180); // example of max time
-            validType = true;
+        if (mode.equals("2") || mode.toUpperCase().equals("TIMEATTACK") || mode.toUpperCase().equals("TIME ATTACK")) {
+            gameType = new TimeAttack(10); // example of max time
         }
-        if (mode == "3" || mode.toUpperCase().equals("SANDBOX")) {
+        if (mode.equals("3") || mode.toUpperCase().equals("SANDBOX")) {
             gameType = new Sandbox(new Player());
-            validType = true;
         }
-        if (validType) {
-            return gameType;
-        } else {
-            return null;
-        }
+        return gameType;
     }
 }

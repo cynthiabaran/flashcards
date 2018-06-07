@@ -18,4 +18,7 @@ public class Versus extends Game { // classes.Versus is a specific classes.Game 
     public void p1Attack(Player p2) {
 
     }
+    public void start(){
+    	
+    }
 }
