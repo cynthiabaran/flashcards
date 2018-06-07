@@ -20,7 +20,7 @@ import java.io.File;
 
 public abstract class Game {
 
-    private Player p1;
+    protected Player p1;
     private ArrayList<Card> deck;
 
     public Game() {

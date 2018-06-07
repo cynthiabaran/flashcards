@@ -45,6 +45,7 @@ public class TimeAttack extends Game { // classes.TimeAttack is a specific class
     public static void losePoints(Player p) {
         p.setPlayerPoints(p.getPlayerPoints() - 1);
     }
+
     public void start() throws InterruptedException{
     	Scanner scanf = new Scanner(System.in);
     	String input = "";
