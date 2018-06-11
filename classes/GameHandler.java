@@ -23,7 +23,8 @@ public class GameHandler {
         
     	
     	Player player = new Player("Steve");
-    	Sandbox game = new Sandbox(player);
+    	Menu menu = new Menu();
+    	Game game = menu.makeMenu();
     	game.populateDeck("content");
     	game.populateDeck("question");
     	game.showDeck();

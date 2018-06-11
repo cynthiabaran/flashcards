@@ -11,6 +11,7 @@ public class Player {
     private float playerPoints;
     //private Flashcards hand; // TODO: player's card hand (valid?)
 
+
     // constructors
     public Player () { // default constructor	
         // TODO: discuss which could be valid constructor for this class

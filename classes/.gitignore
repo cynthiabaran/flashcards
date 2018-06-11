@@ -7,3 +7,6 @@
 /Sandbox.class
 /TimeAttack.class
 /Versus.class
+/TimeAttack$RemindTask.class
+/TimeAttack$timeHasEnded.class
+/TimeAttack$endOfGameTask.class

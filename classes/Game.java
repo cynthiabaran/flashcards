@@ -18,9 +18,9 @@ import java.io.File;
  *
  */
 
-public class Game {
+public abstract class Game {
 
-    private Player p1;
+    protected Player p1;
     private ArrayList<Card> deck;
 
     public Game() {
@@ -32,6 +32,8 @@ public class Game {
 		this.p1 = p1;
 		this.deck = new ArrayList<Card>();
 	}
+    
+    public abstract void start() throws InterruptedException;
     
 	public boolean gameOver() {
         return false;
@@ -67,7 +69,17 @@ public class Game {
     		card.printCard();
     	}
     }
-//    Return random card from deck
+//    Return random card from specified type
+    public Card getRandomCard(String type){
+    	Card card;
+    	Random randomGenerator = new Random();
+    	do{
+	    	int index = randomGenerator.nextInt(deck.size());
+	        card = deck.get(index);
+    	}while(!card.getCardType().equals(type));
+        return card;
+    }
+//  Return random card from deck
     public Card getRandomCard(){
     	Random randomGenerator = new Random();
     	int index = randomGenerator.nextInt(deck.size());
