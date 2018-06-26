@@ -14,13 +14,14 @@ import java.io.*;
  */
 
 public class Card implements Serializable {
-    // parameters
 
-    public int getCardNumber() {
+	private static final long serialVersionUID = -1973581505657194599L;
+
+	public int getCardNumber() {
         return cardNumber;
     }
 
-    public String getCardType() {
+    public CardType getCardType() {
         return cardType;
     }
 
@@ -33,7 +34,7 @@ public class Card implements Serializable {
     }
 
     private int cardNumber;
-    private String cardType; // possible change to enum here
+    private CardType cardType; // possible change to enum here
     private String content;
     private String title;
     public static int CARD_NUMBER=0;
@@ -42,9 +43,16 @@ public class Card implements Serializable {
         CARD_NUMBER++;
         return CARD_NUMBER;
     }
-    public Card(String cardType, String title, String content) {
+    protected Card(String cardType, String title, String content) {
         this.cardNumber = generateNewCardNumber();
-        this.cardType = cardType;
+        // TODO: implement factory method
+        this.cardType = CardType.parseCardType(cardType);
+        this.content = content;
+        this.title = title;
+    }
+
+    protected Card(String title, String content) {
+        this.cardNumber = generateNewCardNumber();
         this.content = content;
         this.title = title;
     }

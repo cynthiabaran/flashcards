@@ -1,8 +1,7 @@
 package classes;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.lang.Exception;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 /**
@@ -23,12 +22,12 @@ public abstract class Game {
     protected Player p1;
     private ArrayList<Card> deck;
 
-    public Game() {
+    protected Game() {
 		this.p1 = new Player();
 		this.deck = new ArrayList<Card>();
 	}
     
-    public Game(Player p1) {
+    protected Game(Player p1) {
 		this.p1 = p1;
 		this.deck = new ArrayList<Card>();
 	}
@@ -41,7 +40,7 @@ public abstract class Game {
 
     public void nextTurn() {
 
-    }
+	}
 
     public void populateDeck(String cardType){
         String folderPath = "./data/"+ cardType;
@@ -70,6 +69,8 @@ public abstract class Game {
     	}
     }
 //    Return random card from specified type
+// TODO: Shouldn't this be abstract and implemented in each Game type?
+// For each game type functions with different card types
     public Card getRandomCard(String type){
     	Card card;
     	Random randomGenerator = new Random();

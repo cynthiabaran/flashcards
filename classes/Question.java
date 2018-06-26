@@ -5,8 +5,6 @@ package classes;
 
 import java.text.Collator;
 
-import classes.Card;
-
 /** Class classes.Question
  *
  * Specific Flashcard type
@@ -15,13 +13,16 @@ import classes.Card;
  */
 
 public class Question extends Card { // classes.Question is a specific card type
-    // parameters
+
+	private static final long serialVersionUID = 8326557786639113841L;
+	
+	// parameters
     private String answer;
 
     //contructors
 
-    Question(String cardType, String title, String content, String answer) {
-        super(cardType, title, content);
+    Question(String title, String content, String answer) {
+        super(title, content);
         this.answer = answer;
     }
 

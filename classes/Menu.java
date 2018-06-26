@@ -3,6 +3,7 @@ package classes;
  * @author Grupo das Bananas loucas da aldeia do mato
  */
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /** Class Menu
@@ -17,21 +18,41 @@ public class Menu {
         scanf = new Scanner(System.in);
     }
 
+    /**
+     * Show the initial menu of the game
+     * @return the game type selected by the user in the menu
+     */
     public Game makeMenu() {
         showSplash();
 
-        Game type = null;
+        GameType type = null;
 
         do {
             showChoices();
             String mode = scanf.next();
-            type = chooseGameType(mode);
+            try {
+                int k = Integer.parseInt(mode);
+                try {
+                    type = GameType.gatGameType(k);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage() + "\n");
+                }
+            } catch (NumberFormatException e) {
+                try {
+                    type = GameType.getGameType(mode);
+                } catch (IOException e2) {
+                    System.out.println(e2.getMessage() + "\n");
+                }
+            }
         } while (type == null);
 
-        return type;
+        return GameFactory.getGame(type);
     }
 
-    public void showSplash() {
+    /**
+     * Shows the initial game Splash in the Console
+     */
+    private void showSplash() {
         String saidaSplash =
         "****************************************\n" +
         "******** Welcome to Flashcards *********\n" +
@@ -40,7 +61,10 @@ public class Menu {
         System.out.println(saidaSplash);
     }
 
-    public void showChoices() {
+    /**
+     * Shows the game type choices for the user in the console
+     */
+    private void showChoices() {
         String saidaMenu =
         "Please choose your game type:\n" +
         "Type the number or the name to choose\n" +
@@ -54,21 +78,8 @@ public class Menu {
         System.out.print(saidaMenu);
     }
 
-    public void Quit() { //TODO: Define what exactly means to quit menu.
+    @Deprecated
+    public void Quit() { // Define what exactly means to quit menu.
 
-    }
-
-    public Game chooseGameType(String mode) {
-        Game gameType = null;
-        if (mode.equals("1") || mode.toUpperCase().equals("VERSUS")) {
-            gameType = new Versus();
-        }
-        if (mode.equals("2") || mode.toUpperCase().equals("TIMEATTACK") || mode.toUpperCase().equals("TIME ATTACK")) {
-            gameType = new TimeAttack(10); // example of max time
-        }
-        if (mode.equals("3") || mode.toUpperCase().equals("SANDBOX")) {
-            gameType = new Sandbox(new Player());
-        }
-        return gameType;
     }
 }

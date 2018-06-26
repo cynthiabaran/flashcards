@@ -9,8 +9,8 @@ import classes.Player;
 import java.util.Scanner;
 
 /** Class classes.Versus
- *
- *
+ * Specific game type where one player plays against another, P1 answers first then P2.
+ * Answering correctly marks a point, the first to reach 10 wins.
  */
 
 public class Versus extends Game { // classes.Versus is a specific classes.Game type

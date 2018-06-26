@@ -26,6 +26,11 @@ public class TimeAttack extends Game { // classes.TimeAttack is a specific class
     private boolean endOfGame;
 
     // constructors
+    TimeAttack() {
+        MAX_TIME = 10;
+        timeElapsed = 0;
+        endOfGame = false;
+    }
     TimeAttack(long time) { // default constructor
         MAX_TIME = time;
         timeElapsed = 0;

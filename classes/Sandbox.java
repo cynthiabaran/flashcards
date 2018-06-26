@@ -18,7 +18,8 @@ public class Sandbox extends Game { // classes.Sandbox is a specific classes.Gam
     // parameters
     private float timeElapsed;
 
-    // constructors
+	// constructors
+	Sandbox() {}
     Sandbox(Player p1) {
     	super(p1);
     }
@@ -30,7 +31,7 @@ public class Sandbox extends Game { // classes.Sandbox is a specific classes.Gam
     	while(true){
     		Card card = super.getRandomCard();
 //    		There is no answer so we just show
-    		if(card.getCardType().equals("content")){
+    		if(card.getCardType().equals(CardType.CONTENT)){
     			System.out.println(card.getTitle());
     			System.out.println("Enter anything to show the content:");
     			input = scanf.next();
