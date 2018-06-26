@@ -12,6 +12,17 @@ package classes;
 public enum CardType {
     QUESTION, CONTENT;
 
+    public String toString() {
+        switch (this) {
+            case QUESTION:
+                return "question";
+            case CONTENT:
+                return "content";
+            default:
+                return "invalid";
+        }
+    }
+
     public static CardType parseCardType(String type) {
         if (type.compareToIgnoreCase("question") == 0) {
             return QUESTION;

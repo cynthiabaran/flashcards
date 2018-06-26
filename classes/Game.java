@@ -42,8 +42,8 @@ public abstract class Game {
 
 	}
 
-    public void populateDeck(String cardType){
-        String folderPath = "./data/"+ cardType;
+    public void populateDeck(CardType cardType){
+        String folderPath = "./data/"+ cardType.toString();
         File folder = new File(folderPath);
         for (File fileEntry : folder.listFiles()) {
 			try {

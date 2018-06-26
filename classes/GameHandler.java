@@ -25,8 +25,8 @@ public class GameHandler {
     	Player player = new Player("Steve");
     	Menu menu = new Menu();
     	Game game = menu.makeMenu();
-    	game.populateDeck("content");
-    	game.populateDeck("question");
+    	game.populateDeck(CardType.CONTENT);
+    	game.populateDeck(CardType.QUESTION);
     	game.showDeck();
     	try {
 			game.start();
