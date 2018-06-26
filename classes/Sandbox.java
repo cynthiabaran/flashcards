@@ -61,6 +61,12 @@ public class Sandbox extends Game { // classes.Sandbox is a specific classes.Gam
     	}
     	scanf.close();
     }
-    // methods
+	
+	@Override
+	public void populateDeck() {
+		super.populateDeck(CardType.CONTENT);
+		super.populateDeck(CardType.QUESTION);
+	}
+
     /* earnPoints (static from classes.TimeAttack) */
 }

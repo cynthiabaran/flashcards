@@ -20,7 +20,7 @@ import java.io.File;
 public abstract class Game {
 
     protected Player p1;
-    private ArrayList<Card> deck;
+    protected ArrayList<Card> deck;
 
     protected Game() {
 		this.p1 = new Player();
@@ -42,7 +42,10 @@ public abstract class Game {
 
 	}
 
-    public void populateDeck(CardType cardType){
+	/**
+	 * Populates the deck with a card type
+	 */
+    protected void populateDeck(CardType cardType){
         String folderPath = "./data/"+ cardType.toString();
         File folder = new File(folderPath);
         for (File fileEntry : folder.listFiles()) {
@@ -59,7 +62,12 @@ public abstract class Game {
 				e.printStackTrace();
 			}
         }
-    }
+	}
+	
+	/**
+	 * Should be implemented to each game type, to know which card to populate the deck with
+	 */
+	public abstract void populateDeck();
     
 //    Print entire deck
     public void showDeck(){
@@ -71,7 +79,7 @@ public abstract class Game {
 //    Return random card from specified type
 // TODO: Shouldn't this be abstract and implemented in each Game type?
 // For each game type functions with different card types
-    public Card getRandomCard(String type){
+    public Card getRandomCard(CardType type){
     	Card card;
     	Random randomGenerator = new Random();
     	do{

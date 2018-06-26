@@ -48,7 +48,7 @@ public class Versus extends Game { // classes.Versus is a specific classes.Game 
 
             Card card = super.getRandomCard();
 //    		There is no answer so we just show
-            if(card.getCardType().equals("content")){
+            if(card.getCardType().equals(CardType.CONTENT)){
                 System.out.println(card.getTitle());
                 System.out.println("Enter anything to show the content:");
                 input = scanf.next();
@@ -86,4 +86,8 @@ public class Versus extends Game { // classes.Versus is a specific classes.Game 
         }
         scanf.close();
     }
+
+    public void populateDeck(){
+        super.populateDeck(CardType.QUESTION);
+	}
 }
