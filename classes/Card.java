@@ -13,7 +13,7 @@ import java.io.*;
  * 
  */
 
-public class Card implements Serializable {
+public abstract class Card implements Serializable {
 
 	private static final long serialVersionUID = -1973581505657194599L;
 
@@ -34,7 +34,7 @@ public class Card implements Serializable {
     }
 
     private int cardNumber;
-    private CardType cardType; // possible change to enum here
+    protected CardType cardType;
     private String content;
     private String title;
     public static int CARD_NUMBER=0;
@@ -45,7 +45,6 @@ public class Card implements Serializable {
     }
     protected Card(String cardType, String title, String content) {
         this.cardNumber = generateNewCardNumber();
-        // TODO: implement factory method
         this.cardType = CardType.parseCardType(cardType);
         this.content = content;
         this.title = title;
@@ -57,6 +56,23 @@ public class Card implements Serializable {
         this.title = title;
     }
 
+    /** 
+     * Gets a CONTENT card
+     */
+    public static Card getCard(String title, String content) {
+        return new Content(title, content);
+    }
+
+    /**
+     * Gets a QUESTION card
+     */
+    public static Card getCard(String title, String content, String answer) {
+        return new Question(title, content, answer);
+    }
+
+    /**
+     * Saves a card to a file for persistance
+     */
     public void saveCardToFile() {
         try {
             String filePath = "./data/"+getCardType()+"/card_"+getCardNumber()+".ser";
@@ -71,6 +87,9 @@ public class Card implements Serializable {
         }
     }
 
+    /**
+     * Loads a card that's saved in a file
+     */
     public static Card loadCardFromFile(String filePath) {
         Card c = null;
         try {
@@ -88,6 +107,9 @@ public class Card implements Serializable {
         return c;
     }
 
+    /**
+     * Prints card content
+     */
     public void printCard(){
         System.out.println("Card "+this.getCardNumber()+" is a "+getCardType()+" card.");
         System.out.println("Title: "+this.getTitle());
