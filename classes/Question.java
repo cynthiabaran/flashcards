@@ -23,6 +23,7 @@ public class Question extends Card { // classes.Question is a specific card type
 
     Question(String title, String content, String answer) {
         super(title, content);
+        this.cardType = CardType.QUESTION;
         this.answer = answer;
     }
 
