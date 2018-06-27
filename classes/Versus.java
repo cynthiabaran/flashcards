@@ -4,7 +4,7 @@ package classes;
  */
 
 import classes.Game;
-import classes.Player;
+// import classes.Player;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Versus extends Game { // classes.Versus is a specific classes.Game type
 
-    private Player p2;
+    // private Player p2;
     private int p1Points=0;
     private int p2Points=0;
     private int counter=0;

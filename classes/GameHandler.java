@@ -1,5 +1,9 @@
 package classes;
 
+/**
+ * @author Grupo das Bananas loucas da aldeia do mato
+ */
+
 import classes.Card;
 
 public class GameHandler {
@@ -22,7 +26,7 @@ public class GameHandler {
         question2 = Card.loadCardFromFile("./data/question/card_3.ser");
         
     	
-    	Player player = new Player("Steve");
+    	// Player player = new Player("Steve");
     	Menu menu = new Menu();
     	Game game = menu.makeMenu();
     	game.populateDeck();

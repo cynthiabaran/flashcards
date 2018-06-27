@@ -21,19 +21,19 @@ import classes.Player;
 public class TimeAttack extends Game { // classes.TimeAttack is a specific classes.Game type
     // parameters
     private final long MAX_TIME;
-    private float timeElapsed;
+    // private float timeElapsed;
     private Timer timer;
     private boolean endOfGame;
 
     // constructors
     TimeAttack() {
         MAX_TIME = 10;
-        timeElapsed = 0;
+        // timeElapsed = 0;
         endOfGame = false;
     }
     TimeAttack(long time) {
         MAX_TIME = time;
-        timeElapsed = 0;
+        // timeElapsed = 0;
         endOfGame = false;
     }
 

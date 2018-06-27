@@ -16,7 +16,7 @@ import classes.Game;
 
 public class Sandbox extends Game { // classes.Sandbox is a specific classes.Game type
     // parameters
-    private float timeElapsed;
+    // private float timeElapsed;
 
 	// constructors
 	Sandbox() {}

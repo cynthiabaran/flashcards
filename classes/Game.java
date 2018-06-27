@@ -1,12 +1,13 @@
 package classes;
 
+/**
+ * @author Grupo das Bananas loucas da aldeia do mato
+ */
+
 import java.io.FileInputStream;
 import java.lang.Exception;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-/**
- * @author Grupo das Bananas loucas da aldeia do mato
- */
 import java.util.Random;
 import java.io.File;
 
@@ -66,6 +67,7 @@ public abstract class Game {
 	
 	/**
 	 * Should be implemented to each game type, to know which card to populate the deck with
+	 * Implement by calling super.populateDeck(cardType) with the cardtype you want for that game.
 	 */
 	public abstract void populateDeck();
     
@@ -77,7 +79,6 @@ public abstract class Game {
     	}
     }
 //    Return random card from specified type
-// TODO: Shouldn't this be abstract and implemented in each Game type?
 // For each game type functions with different card types
     public Card getRandomCard(CardType type){
     	Card card;
