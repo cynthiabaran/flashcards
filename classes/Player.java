@@ -7,7 +7,7 @@ public class Player {
     // parameters
     private String name;
     private int healthPoints;
-    private static final int MAX_HEALTH = 100; // TODO: choose MAX_HEALTH value
+    private static final int MAX_HEALTH = 100;
     private float playerPoints;
     //private Flashcards hand; // TODO: player's card hand (valid?)
 
@@ -50,6 +50,7 @@ public class Player {
         this.playerPoints = playerPoints;
     }
 
+    @Deprecated
     public void playCard() {
         // TODO: implement the playCard method
     }

@@ -16,9 +16,10 @@ import classes.Game;
 
 public class Sandbox extends Game { // classes.Sandbox is a specific classes.Game type
     // parameters
-    private float timeElapsed;
+    // private float timeElapsed;
 
-    // constructors
+	// constructors
+	Sandbox() {}
     Sandbox(Player p1) {
     	super(p1);
     }
@@ -30,7 +31,7 @@ public class Sandbox extends Game { // classes.Sandbox is a specific classes.Gam
     	while(true){
     		Card card = super.getRandomCard();
 //    		There is no answer so we just show
-    		if(card.getCardType().equals("content")){
+    		if(card.getCardType().equals(CardType.CONTENT)){
     			System.out.println(card.getTitle());
     			System.out.println("Enter anything to show the content:");
     			input = scanf.next();
@@ -60,6 +61,12 @@ public class Sandbox extends Game { // classes.Sandbox is a specific classes.Gam
     	}
     	scanf.close();
     }
-    // methods
+	
+	@Override
+	public void populateDeck() {
+		super.populateDeck(CardType.CONTENT);
+		super.populateDeck(CardType.QUESTION);
+	}
+
     /* earnPoints (static from classes.TimeAttack) */
 }

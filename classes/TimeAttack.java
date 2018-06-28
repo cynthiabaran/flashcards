@@ -21,17 +21,21 @@ import classes.Player;
 public class TimeAttack extends Game { // classes.TimeAttack is a specific classes.Game type
     // parameters
     private final long MAX_TIME;
-    private float timeElapsed;
+    // private float timeElapsed;
     private Timer timer;
     private boolean endOfGame;
 
     // constructors
-    TimeAttack(long time) { // default constructor
-        MAX_TIME = time;
-        timeElapsed = 0;
+    TimeAttack() {
+        MAX_TIME = 10;
+        // timeElapsed = 0;
         endOfGame = false;
     }
-    // TODO: define constructor(s) for this class
+    TimeAttack(long time) {
+        MAX_TIME = time;
+        // timeElapsed = 0;
+        endOfGame = false;
+    }
 
     // methods
     public void showPoints(Player p, float points) {
@@ -58,7 +62,7 @@ public class TimeAttack extends Game { // classes.TimeAttack is a specific class
     	timer.schedule(new endOfGameTask(), MAX_TIME*1000);
     	while(!endOfGame){
     		//get a random question
-    		Card card = super.getRandomCard("question");
+    		Card card = super.getRandomCard(CardType.QUESTION);
 //    		player tries to answer
 			Question question = (Question) card;
 			System.out.println("Answer the question: " + question.getTitle());
@@ -85,4 +89,8 @@ public class TimeAttack extends Game { // classes.TimeAttack is a specific class
             endOfGame = true;
         }
     }
+
+    public void populateDeck(){
+        super.populateDeck(CardType.QUESTION);
+	}
 }

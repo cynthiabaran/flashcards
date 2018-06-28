@@ -4,18 +4,18 @@ package classes;
  */
 
 import classes.Game;
-import classes.Player;
+// import classes.Player;
 
 import java.util.Scanner;
 
 /** Class classes.Versus
- *
- *
+ * Specific game type where one player plays against another, P1 answers first then P2.
+ * Answering correctly marks a point, the first to reach 10 wins.
  */
 
 public class Versus extends Game { // classes.Versus is a specific classes.Game type
 
-    private Player p2;
+    // private Player p2;
     private int p1Points=0;
     private int p2Points=0;
     private int counter=0;
@@ -48,7 +48,7 @@ public class Versus extends Game { // classes.Versus is a specific classes.Game 
 
             Card card = super.getRandomCard();
 //    		There is no answer so we just show
-            if(card.getCardType().equals("content")){
+            if(card.getCardType().equals(CardType.CONTENT)){
                 System.out.println(card.getTitle());
                 System.out.println("Enter anything to show the content:");
                 input = scanf.next();
@@ -86,4 +86,8 @@ public class Versus extends Game { // classes.Versus is a specific classes.Game 
         }
         scanf.close();
     }
+
+    public void populateDeck(){
+        super.populateDeck(CardType.QUESTION);
+	}
 }

@@ -13,14 +13,15 @@ import java.io.*;
  * 
  */
 
-public class Card implements Serializable {
-    // parameters
+public abstract class Card implements Serializable {
 
-    public int getCardNumber() {
+	private static final long serialVersionUID = -1973581505657194599L;
+
+	public int getCardNumber() {
         return cardNumber;
     }
 
-    public String getCardType() {
+    public CardType getCardType() {
         return cardType;
     }
 
@@ -33,7 +34,7 @@ public class Card implements Serializable {
     }
 
     private int cardNumber;
-    private String cardType; // possible change to enum here
+    protected CardType cardType;
     private String content;
     private String title;
     public static int CARD_NUMBER=0;
@@ -42,13 +43,36 @@ public class Card implements Serializable {
         CARD_NUMBER++;
         return CARD_NUMBER;
     }
-    public Card(String cardType, String title, String content) {
+    protected Card(String cardType, String title, String content) {
         this.cardNumber = generateNewCardNumber();
-        this.cardType = cardType;
+        this.cardType = CardType.parseCardType(cardType);
         this.content = content;
         this.title = title;
     }
 
+    protected Card(String title, String content) {
+        this.cardNumber = generateNewCardNumber();
+        this.content = content;
+        this.title = title;
+    }
+
+    /** 
+     * Gets a CONTENT card
+     */
+    public static Card getCard(String title, String content) {
+        return new Content(title, content);
+    }
+
+    /**
+     * Gets a QUESTION card
+     */
+    public static Card getCard(String title, String content, String answer) {
+        return new Question(title, content, answer);
+    }
+
+    /**
+     * Saves a card to a file for persistance
+     */
     public void saveCardToFile() {
         try {
             String filePath = "./data/"+getCardType()+"/card_"+getCardNumber()+".ser";
@@ -63,6 +87,9 @@ public class Card implements Serializable {
         }
     }
 
+    /**
+     * Loads a card that's saved in a file
+     */
     public static Card loadCardFromFile(String filePath) {
         Card c = null;
         try {
@@ -80,6 +107,9 @@ public class Card implements Serializable {
         return c;
     }
 
+    /**
+     * Prints card content
+     */
     public void printCard(){
         System.out.println("Card "+this.getCardNumber()+" is a "+getCardType()+" card.");
         System.out.println("Title: "+this.getTitle());

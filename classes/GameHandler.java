@@ -1,32 +1,35 @@
 package classes;
 
+/**
+ * @author Grupo das Bananas loucas da aldeia do mato
+ */
+
 import classes.Card;
 
 public class GameHandler {
     public static void main(String [] args) {
     	
     	
-        Card card1 = new Card("content", "Qual a diferença entre uma classe e objeto em Java?", "Uma classe é uma coleção de definições de atributos e métodos que todos os objetos instanciados daquela classe possuem.");
+        Card card1 = Card.getCard("Qual a diferenï¿½a entre uma classe e objeto em Java?", "Uma classe ï¿½ uma coleï¿½ï¿½o de definiï¿½ï¿½es de atributos e mï¿½todos que todos os objetos instanciados daquela classe possuem.");
         card1.saveCardToFile();
         card1 = Card.loadCardFromFile("./data/content/card_1.ser");
 //        card1.printCard();
-        Card card2 = new Card("content", "Como o avião avoa se ele não bate as asa?", "Vroom");
+        Card card2 = Card.getCard("Como o aviï¿½o avoa se ele nï¿½o bate as asa?", "Vroom");
         card2.saveCardToFile();
         card2 = Card.loadCardFromFile("./data/content/card_2.ser");
 //        card2.printCard();
-        Card question1 = new Question("question", "2+2?", "Math", "4");
+        Card question1 = Card.getCard("2+2?", "Math", "4");
         question1.saveCardToFile();
         question1 = Card.loadCardFromFile("./data/question/card_3.ser");
-        Card question2 = new Question("question", "Qual o melhor sabor de Corote?", "Misc", "Pêssego");
+        Card question2 = Card.getCard("Qual o melhor sabor de Corote?", "Misc", "Pï¿½ssego");
         question2.saveCardToFile();
         question2 = Card.loadCardFromFile("./data/question/card_3.ser");
         
     	
-    	Player player = new Player("Steve");
+    	// Player player = new Player("Steve");
     	Menu menu = new Menu();
     	Game game = menu.makeMenu();
-    	game.populateDeck("content");
-    	game.populateDeck("question");
+    	game.populateDeck();
     	game.showDeck();
     	try {
 			game.start();

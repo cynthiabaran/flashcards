@@ -1,13 +1,13 @@
 package classes;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
 /**
  * @author Grupo das Bananas loucas da aldeia do mato
  */
+
+import java.io.FileInputStream;
+import java.lang.Exception;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Random;
 import java.io.File;
 
@@ -21,14 +21,14 @@ import java.io.File;
 public abstract class Game {
 
     protected Player p1;
-    private ArrayList<Card> deck;
+    protected ArrayList<Card> deck;
 
-    public Game() {
+    protected Game() {
 		this.p1 = new Player();
 		this.deck = new ArrayList<Card>();
 	}
     
-    public Game(Player p1) {
+    protected Game(Player p1) {
 		this.p1 = p1;
 		this.deck = new ArrayList<Card>();
 	}
@@ -41,10 +41,13 @@ public abstract class Game {
 
     public void nextTurn() {
 
-    }
+	}
 
-    public void populateDeck(String cardType){
-        String folderPath = "./data/"+ cardType;
+	/**
+	 * Populates the deck with a card type
+	 */
+    protected void populateDeck(CardType cardType){
+        String folderPath = "./data/"+ cardType.toString();
         File folder = new File(folderPath);
         for (File fileEntry : folder.listFiles()) {
 			try {
@@ -60,7 +63,13 @@ public abstract class Game {
 				e.printStackTrace();
 			}
         }
-    }
+	}
+	
+	/**
+	 * Should be implemented to each game type, to know which card to populate the deck with
+	 * Implement by calling super.populateDeck(cardType) with the cardtype you want for that game.
+	 */
+	public abstract void populateDeck();
     
 //    Print entire deck
     public void showDeck(){
@@ -70,7 +79,8 @@ public abstract class Game {
     	}
     }
 //    Return random card from specified type
-    public Card getRandomCard(String type){
+// For each game type functions with different card types
+    public Card getRandomCard(CardType type){
     	Card card;
     	Random randomGenerator = new Random();
     	do{
